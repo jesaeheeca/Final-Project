@@ -2,7 +2,7 @@
 library(shiny)
 
 fluidPage(
-  navbarPage("ABJJ",
+  navbarPage("College Information Visualizations",
              theme = 'bootstrap.css',
              tabPanel('Median Household Income',
                       titlePanel('Schools with Top 5 Median Household Income by State'),
