@@ -31,7 +31,7 @@ fluidPage(
                         ),
                         
                         #Render the bar plot
-                        mainPanel(
+                        mainPanel(plotOutput("bar2")
                           #get the plots here
                         )
                       )
@@ -47,7 +47,7 @@ fluidPage(
                           ),
                         
                         #Render the bar plot
-                        mainPanel(
+                        mainPanel(plotOutput("bar3")
                           #get the plots here
                         )
                         )
