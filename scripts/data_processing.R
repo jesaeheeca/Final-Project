@@ -13,8 +13,8 @@ new_col_names <- c('UnitID', 'State', 'School_Name', 'Median_HH_Income', 'Comput
 names(final_dataset) <- new_col_names
 final_dataset$School_Name <- tolower(final_dataset$School_Name)
   
-#Takes in user-entered state code (unspecified capitalization) and retrieves the top 5 schools with
-#highest median hh income and mean student earnings.
+#Takes in user-entered state code (unspecified capitalization) and retrieves the top 5 schools with the highest
+#median household income.
 topFiveIncome <- function(user_state) {
   user_state <- toupper(user_state)
   top_5_income <- final_dataset %>%
@@ -25,6 +25,8 @@ topFiveIncome <- function(user_state) {
   return(top_5_income)
 }
 
+#Takes in user-entered state code (unspecified capitalization) and retrieves the top 5 schools with the highest
+#mean student earnings for independent students working and not enrolled 10 years after entry into the college.
 topFiveEarnings <- function(user_state) {
   user_state <- toupper(user_state)
   top_5_earnings <- final_dataset %>%
@@ -40,11 +42,6 @@ topFiveEarnings <- function(user_state) {
 percentDegreesAwarded <- function(user_entered_school) {
   user_entered_school <- tolower(user_entered_school)
   degree_percents <- final_dataset %>%
-    filter(grepl(user_entered_school, ignore.case = TRUE)) %>%
+    filter(grepl(user_entered_school, ignore.case = TRUE, final_dataset$School_Name)) %>%
     select(Computer_and_Information_Sciences, Education, Engineering, Humanities, Business)
 }
-
-test <- percentDegreesAwarded('university of washingToN')
-
-test2 <- filter(grepl(user_entered_school, ignore.case = TRUE), final_dataset)
-  
