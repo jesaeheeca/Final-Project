@@ -34,10 +34,10 @@ server <- function(input, output) {
     )
   )
   
-  # output$bar3 <- renderPlot(
-  #   return(ggplot(ree3(), aes(x=Type of Degree, y=, fill=School_Name)) +
-  #            geom_bar(stat='identity') + coord_flip() + xlab('Ratio of Students') + ylab('Type of Degree') +
-  #            labs(title = paste("Top 5 Schools by Median Post-Graduate Income in", toupper(input$state2), sep=" "))
-  #   )
-  # )
+  output$bar3 <- renderPlot(
+    return(ggplot(ree3(), aes(x=degrees, y=ratios, fill=ratios)) +
+             geom_bar(stat='identity') + coord_flip() + xlab('Ratio of Students') + ylab('Type of Degree') +
+             labs(title = paste("Ratio of Students by Type of Degree in", input$school, sep=" "))
+    )
+  )
 }

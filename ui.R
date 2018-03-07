@@ -42,8 +42,7 @@ fluidPage(
                       
                       sidebarLayout(
                         sidebarPanel(
-                          textInput("school", label = h3("What percent of degrees are awarded in the given school?"), 
-                                    value = "Enter a school here...")
+                          textInput("school", label = h3("What percent of degrees are awarded in the given school?"))
                           ),
                         
                         #Render the bar plot
