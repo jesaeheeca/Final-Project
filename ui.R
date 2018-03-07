@@ -13,13 +13,11 @@ fluidPage(
                                     value = "Enter a state abbreviation here...")
                         ),
                         
-                        #Render the bar plot
+                        # Render the bar plot
                         mainPanel(plotOutput("bar")
-                          #get the plots here
                         )
                       )
              ),
-             
              tabPanel('Mean Student Earnings',
                       titlePanel('Schools with Top 5 Mean Student Earnings by State'),
                       
@@ -30,9 +28,8 @@ fluidPage(
                                     value = "Enter a state abbreviation here...")
                         ),
                         
-                        #Render the bar plot
+                        # Render the bar plot
                         mainPanel(plotOutput("bar2")
-                          #get the plots here
                         )
                       )
              ),
@@ -45,11 +42,10 @@ fluidPage(
                           textInput("school", label = h3("What percent of degrees are awarded in the given school?"))
                           ),
                         
-                        #Render the bar plot
+                        # Render the bar plot
                         mainPanel(plotOutput("bar3")
-                          #get the plots here
                         )
-                        )
+                     )
              )
 )
 )
