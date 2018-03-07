@@ -1,4 +1,3 @@
-install.packages('dplyr')
 library('dplyr')
 scorecard_dataset <- read.csv(file = 'data/Most-Recent-Cohorts-Scorecard-Elements.csv')
 treasury_dataset <- read.csv(file = 'data/Most-Recent-Cohorts-Treasury-Elements.csv')
@@ -6,12 +5,13 @@ treasury_dataset <- read.csv(file = 'data/Most-Recent-Cohorts-Treasury-Elements.
 #Join the two datasets, filter for only the columns we need
 final_dataset <- left_join(scorecard_dataset, treasury_dataset) %>%
   filter(CURROPER == 1) %>% #only list schools that are currently operating
-  select(UNITID, STABBR, MEDIAN_HH_INC, PCIP11, PCIP13, PCIP14, PCIP24, PCIP52, MN_EARN_WNE_P10)
+  select(UNITID, STABBR, INSTNM, MEDIAN_HH_INC, PCIP11, PCIP13, PCIP14, PCIP24, PCIP52, MN_EARN_WNE_P10)
 
 #Rename columns headers
-new_col_names <- c('UnitID', 'State', 'Median_HH_Income', 'Computer_and_Information_Sciences', 
+new_col_names <- c('UnitID', 'State', 'School_Name', 'Median_HH_Income', 'Computer_and_Information_Sciences', 
                   'Education', 'Engineering', 'Humanities', 'Business', 'Mean_Student_Earnings')
 names(final_dataset) <- new_col_names
+final_dataset$School_Name <- tolower(final_dataset$School_Name)
   
 #Takes in user-entered state code (unspecified capitalization) and retrieves the top 5 schools with
 #highest median hh income and mean student earnings.
@@ -38,7 +38,8 @@ topFiveEarnings <- function(user_state) {
 #Takes in user-entered school name (unspecified capitalization) and retrieves information for the percent
 #of degrees awarded.
 percentDegreesAwarded <- function(user_entered_school) {
-  user_entered_school <- 
+  user_entered_school <- tolower(user_entered_school)
+  
     
 }
   
