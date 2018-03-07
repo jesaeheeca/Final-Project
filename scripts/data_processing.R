@@ -30,7 +30,7 @@ topFiveIncome <- function(user_state) {
   user_state <- toupper(user_state)
   top_5_income <- data %>%
     filter(State == user_state) %>%
-    select(Median_HH_Income, School_Name) %>%
+    select(School_Name, Median_HH_Income) %>%
     arrange(desc(Median_HH_Income)) %>%
     head(5)
   return(top_5_income)
@@ -43,7 +43,7 @@ topFiveEarnings <- function(user_state) {
   user_state <- toupper(user_state)
   top_5_earnings <- data %>%
     filter(State == user_state) %>%
-    select(Mean_Student_Earnings, School_Name) %>%
+    select(School_Name, Mean_Student_Earnings) %>%
     arrange(desc(Mean_Student_Earnings)) %>%
     head(5)
   return(top_5_earnings)

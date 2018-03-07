@@ -1,5 +1,4 @@
 # ui.R
-install.packages('shiny')
 library(shiny)
 
 fluidPage(
@@ -15,7 +14,7 @@ fluidPage(
                         ),
                         
                         #Render the bar plot
-                        mainPanel(
+                        mainPanel(plotOutput("bar")
                           #get the plots here
                         )
                       )
