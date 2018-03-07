@@ -14,6 +14,8 @@ getData <- function() {
                      'Education', 'Engineering', 'Humanities', 'Business', 'Mean_Student_Earnings')
   names(final_dataset) <- new_col_names
   final_dataset$School_Name <- tolower(final_dataset$School_Name)
+  
+  # Delete rows with NULL or PrivacySuppressed values
   final_dataset <- final_dataset[!grepl("NULL", final_dataset$Median_HH_Income),]
   final_dataset <- final_dataset[!grepl("NULL", final_dataset$Mean_Student_Earnings),]
   final_dataset <- final_dataset[!grepl("PrivacySuppressed", final_dataset$Median_HH_Income),]
