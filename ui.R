@@ -35,24 +35,22 @@ fluidPage(navbarPage("ABJJ",
                                   #get the plots here
                                 )
                               )
+                     ),
+                     
+                     tabPanel('Degree Percentages',
+                              titlePanel('Percent of Different Degrees Awarded'),
+                              
+                              sidebarLayout(
+                                sidebarPanel(
+                                  textInput("school", label = h3("What percent of degrees are awarded in the given school?"), 
+                                            value = "Enter a school here...")
+                                  ),
+                                
+                                #Render the bar plot
+                                mainPanel(
+                                  #get the plots here
+                                )
+                                )
                      )
-
-  titlePanel("National College Scorecard Data and Post-School Earnings"),
-  
-  sidebarLayout(
-    sidebarPanel(
-      
-      ,
-      
-      ,
-      
-      textInput("school", label = h3("What percent of degrees are awarded in the given school?"), 
-                value = "Enter a school here...")
-      
-    ),
-    
-    mainPanel(
-      # plot output of bar graphs here
-    )
-  )  
+)
 )
