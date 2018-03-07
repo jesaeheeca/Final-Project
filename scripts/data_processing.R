@@ -1,7 +1,7 @@
 install.packages('dplyr')
 library('dplyr')
-scorecard_dataset <- read.csv(file = '~/data/Most-Recent-Cohorts-Scorecard-Elements.csv')
-treasury_dataset <- read.csv(file = '~/data/Most-Recent-Cohorts-Treasury-Elements.csv')
+scorecard_dataset <- read.csv(file = 'data/Most-Recent-Cohorts-Scorecard-Elements.csv')
+treasury_dataset <- read.csv(file = 'data/Most-Recent-Cohorts-Treasury-Elements.csv')
 
 #Join the two datasets, filter for only the columns we need
 final_dataset <- left_join(scorecard_dataset, treasury_dataset) %>%
@@ -9,7 +9,9 @@ final_dataset <- left_join(scorecard_dataset, treasury_dataset) %>%
   select(UNITID, STABBR, MEDIAN_HH_INC, PCIP11, PCIP13, PCIP14, PCIP24, PCIP52, MN_EARN_WNE_P10)
 
 #Rename columns headers
-final_dataset <- 
+new_col_names <- c('UnitID', 'State', 'Median_HH_Income', 'Computer_and_Information_Sciences', 
+                  'Education', 'Engineering', 'Humanities', 'Business', 'mean_earnings')
+names(final_dataset) <- new_col_names
   
 #Takes in user-entered state code (unspecified capitalization) and retrieves the top 5 schools with
 #highest median hh income and mean student earnings.
