@@ -55,6 +55,7 @@ percentDegreesAwarded <- function(user_entered_school) {
   data <- getData()
   user_entered_school <- tolower(user_entered_school)
   degree_percents <- data %>%
-    filter(grepl(user_entered_school, ignore.case = TRUE, final_dataset$School_Name)) %>%
+    filter(grepl(user_entered_school, ignore.case = TRUE, data$School_Name)) %>%
     select(Computer_and_Information_Sciences, Education, Engineering, Humanities, Business)
+  return(degree_percents)
 }
