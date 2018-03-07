@@ -12,6 +12,7 @@ server <- function(input, output) {
             aes(#insert correct: x = , y = ) +
             geom_bar(stat = 'identity') +
             geom_text(aes(label = len), vjust = 1.6, color = 'white', size = 3.5) +
+            scale_fill_grey() +
             coord_flip() +
             xlab('Ratio of Degrees Given') +
             ggtitle('Percentages of Different Degrees Given')
