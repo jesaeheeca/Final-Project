@@ -1,26 +1,21 @@
 # server.R
-install.packages('ggplot2')
-library(ggplot2)
 
-function(input, output) {
-  
-  
-  
-  
-  
-  
-  
-  
+library('rsconnect')
+library('shiny')
+library('ggplot2')
+
+source('scripts/data_processing.R')
+
+
+server <- function(input, output) {
+    
+  ree <- topFiveIncome(input$state1)  
+    
+  output$bar <- renderPlot(
+    return(ggplot(ree, aes(x = 'School_Name', y = 'Median_HH_Income')) + geom_bar(stat = 'identity') +
+            coord_flip() + xlab('Ratio of Degrees Given') + ggtitle('Percentages of Different Degrees Given') +
+            labs(title = "Top 5 Schools by Median Income in" + state1)
+    )
+    
+  )  
 }
-
-
-
-
-
-
-source(./scripts/data_processing.R)
-
-ree <- topFiveIncome(state1)
-
-gee <- ggplot(ree, aes(x = "School_Name", y = "Median_HH_Income")) + geom_bar(stat = "identity") + 
-  labs(title = "Top 5 Schools by Median Income in" + state1)
