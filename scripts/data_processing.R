@@ -39,7 +39,12 @@ topFiveEarnings <- function(user_state) {
 #of degrees awarded.
 percentDegreesAwarded <- function(user_entered_school) {
   user_entered_school <- tolower(user_entered_school)
-  
-    
+  degree_percents <- final_dataset %>%
+    filter(grepl(user_entered_school, ignore.case = TRUE)) %>%
+    select(Computer_and_Information_Sciences, Education, Engineering, Humanities, Business)
 }
+
+test <- percentDegreesAwarded('university of washingToN')
+
+test2 <- filter(grepl(user_entered_school, ignore.case = TRUE), final_dataset)
   
